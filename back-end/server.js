@@ -1,4 +1,3 @@
-require('newrelic');
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -110,3 +109,9 @@ app.delete('/api/notes/:id', function(req, res) {
     }
   });
 });
+
+// Prevent my Heroku node app from sleeping
+const http = require('http');
+setInterval(function() {
+  http.get('http://elminster-white-note-rest-api.herokuapp.com/api/notes');
+}, 1740000); // Do it every 29 minutes (1740000)
