@@ -110,8 +110,8 @@ app.delete('/api/notes/:id', function(req, res) {
   });
 });
 
-// Prevent my Heroku node app from sleeping
-const http = require('http');
+// Preventing my Heroku node app from sleeping
+const http = require("http");
 setInterval(function() {
-  http.get('http://elminster-white-note-rest-api.herokuapp.com/api/notes');
-}, 1740000); // Do it every 29 minutes (1740000)
+    http.get("http://elminster-white-note-rest-api.herokuapp.com");
+}, 300000); // every 5 minutes (300000)
