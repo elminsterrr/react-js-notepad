@@ -21,7 +21,11 @@ class NoteShow extends Component {
   errorView() {
     const { delNoteStatus } = this.props;
     if (delNoteStatus === 'error') {
-      return <div>Sorry, something went wrong. Please try again later.</div>;
+      return (
+        <div className="col-sm-3 col-md-3 col-lg-3 col-xl-3 error-del text-center">
+          Sorry, something went wrong. Please try again later.
+        </div>
+      );
     }
     return <div />;
   }
@@ -42,8 +46,8 @@ class NoteShow extends Component {
     const noteToView = allNotesFromStateObj[selectedNoteFromState];
     return (
       <div className="col-sm-8 col-md-7 col-lg-8 col-xl-8 pull-sm-right text-justify note-show">
-        <h3 className="text-center">{noteToView.title}</h3>
-        <p>{noteToView.content}</p>
+        <h2 className="text-center">{noteToView.title}</h2>
+        <p className="note-text">{noteToView.content}</p>
         <hr />
         {this.timeView()}
         <button

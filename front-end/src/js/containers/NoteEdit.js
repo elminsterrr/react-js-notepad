@@ -49,7 +49,7 @@ class NoteEdit extends Component {
   errorView() {
     const { edit } = this.props;
     if (edit === 'error') {
-      return <div>Sorry, something went wrong. Please try again later.</div>;
+      return <div className="error-del">Sorry, something went wrong. Please try again later.</div>;
     }
     return <div />;
   }

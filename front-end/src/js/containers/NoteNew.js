@@ -34,7 +34,7 @@ class NoteNew extends Component {
   errorView() {
     const { addNoteStatus } = this.props;
     if (addNoteStatus === 'error') {
-      return <div>Sorry, something went wrong. Please try again later.</div>;
+      return <div className="error-del">Sorry, something went wrong. Please try again later.</div>;
     }
     return <div />;
   }

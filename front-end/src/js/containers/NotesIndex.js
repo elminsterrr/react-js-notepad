@@ -18,9 +18,9 @@ class NotesIndex extends Component {
     }
     if (fetchAllStatus === 'error') {
       return (
-        <div className="text-center">
+        <div className="error-del text-center">
           There was a problem connecting to the server! Please try again later!<br />
-          <Link className="btn btn-info" to="/notes/error">
+          <Link to="/notes/error">
             Show Error
           </Link>
         </div>
