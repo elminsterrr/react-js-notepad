@@ -1,13 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Work+Sans&subset=latin-ext);
 @import url(https://fonts.googleapis.com/css?family=Graduate);
+@import 'modules/variables';
 
 body {
   background: url('https://res.cloudinary.com/dfe57evk4/image/upload/v1497030530/beautiful_mountains_of_the_world-wallpaper-1920x1200_ooutrw.jpg') bottom center no-repeat;
-  min-height: 100vh;
   background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  min-height: 100vh;
 
   h2 {
     font-family: 'Work Sans', sans-serif;
@@ -28,14 +26,14 @@ body {
     padding: 0;
 
     .new-note {
-      background-color: #535169;
-      border-color: #535169;
+      background-color: $purple;
+      border-color: $purple;
       font-family: 'Work Sans', sans-serif;
       font-size: 20px;
       margin: 10px 0;
 
       &:hover {
-        background-color: #9b97c5;
+        background-color: $purple-brighter;
       }
     }
   }
@@ -52,10 +50,10 @@ body {
 
   .note-show {
     margin-top: 30px;
-    background: #fff;
     margin-bottom: 25px;
     padding: 25px;
-    border: 1px solid #ddd;
+    background: $white;
+    border: 1px solid $white-darker;
 
     .note-text {
       font-family: 'Work Sans', sans-serif;
@@ -95,7 +93,7 @@ body {
       font-size: 40px;
       font-weight: 700;
       margin-bottom: 0;
-      color: #fff;
+      color: $white;
     }
 
     .form-control-title {
@@ -109,7 +107,7 @@ body {
     }
 
     .text-help {
-      background: #fff;
+      background: $white;
       font-size: 14px;
       font-weight: 700;
       margin-bottom: 10px;
@@ -121,13 +119,13 @@ body {
   }
 
   .error-main {
-    color: #fff;
-    background: #062e38;
+    color: $white;
+    background: $error-background-green;
   }
 
   .error-del {
-    color: #fff;
-    background: #ff0000;
+    color: $white;
+    background: $error-background-red;
     margin-top: 10px;
   }
 
