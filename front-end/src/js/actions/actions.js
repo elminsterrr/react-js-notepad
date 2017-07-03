@@ -17,104 +17,45 @@ export const NOTE_SELECTED = 'NOTE_SELECTED';
 
 const ROOT_URL = 'https://elminster-white-note-rest-api.herokuapp.com';
 
-export function fetchAllNotesStarted() {
-  return {
-    type: FETCH_ALL_NOTES_STARTED,
-  };
-}
-
-export function fetchAllNotesSuccess(response) {
-  return {
-    type: FETCH_ALL_NOTES_SUCCESS,
-    payload: response,
-  };
-}
-
-export function fetchAllNotesError(response) {
-  return {
-    type: FETCH_ALL_NOTES_ERROR,
-    payload: response,
-  };
-}
-
 export function fetchAllNotes() {
   return (dispatch) => {
-    dispatch(fetchAllNotesStarted());
+    dispatch({ type: FETCH_ALL_NOTES_STARTED });
     axios.get(`${ROOT_URL}/api/notes`).then((response) => {
-      dispatch(fetchAllNotesSuccess(response));
+      dispatch({ type: FETCH_ALL_NOTES_SUCCESS, payload: response });
     }).catch((error) => {
-      dispatch(fetchAllNotesError(error));
+      dispatch({ type: FETCH_ALL_NOTES_ERROR, payload: error });
     });
-  };
-}
-
-export function addNoteStarted() {
-  return {
-    type: ADD_NOTE_STARTED,
-  };
-}
-
-export function addNoteSuccess(response) {
-  return {
-    type: ADD_NOTE_SUCCESS,
-    payload: response,
-  };
-}
-
-export function addNoteError(response) {
-  return {
-    type: ADD_NOTE_ERROR,
-    payload: response,
   };
 }
 
 export function addNote(values, callback) {
   return (dispatch) => {
-    dispatch(addNoteStarted());
+    dispatch({ type: ADD_NOTE_STARTED });
     axios.post(`${ROOT_URL}/api/notes`, values).then((response) => {
-      dispatch(addNoteSuccess(response));
+      dispatch({ type: ADD_NOTE_SUCCESS, payload: response });
       callback();
     }).catch((error) => {
-      dispatch(addNoteError(error));
+      dispatch({ type: ADD_NOTE_ERROR, payload: error });
     });
-  };
-}
-
-export function deleteNoteStarted() {
-  return {
-    type: DEL_NOTE_STARTED,
-  };
-}
-
-export function deleteNoteSuccess(response) {
-  return {
-    type: DEL_NOTE_SUCCESS,
-    payload: response,
-  };
-}
-
-export function deleteNoteError(response) {
-  return {
-    type: DEL_NOTE_ERROR,
-    payload: response,
   };
 }
 
 export function deleteOneNote(id, callback) {
   return (dispatch) => {
-    dispatch(deleteNoteStarted());
+    dispatch({ type: DEL_NOTE_STARTED });
     axios.delete(`${ROOT_URL}/api/notes/${id}`).then(() => {
-      dispatch(deleteNoteSuccess(id));
+      dispatch({ type: DEL_NOTE_SUCCESS, payload: id });
       callback();
     }).catch((error) => {
-      dispatch(deleteNoteError(error));
+      dispatch({ type: DEL_NOTE_ERROR, payload: error });
     });
   };
 }
 
-export function editOneNoteStarted() {
-  return {
-    type: EDIT_ONE_NOTE_STARTED,
+export function prepareEdit(id, callback) {
+  return (dispatch) => {
+    dispatch({ type: EDIT_ONE_NOTE_STARTED });
+    callback();
   };
 }
 
@@ -124,34 +65,13 @@ export function touchedEdit() {
   };
 }
 
-export function editOneNoteSuccess(response) {
-  return {
-    type: EDIT_ONE_NOTE_SUCCESS,
-    payload: response,
-  };
-}
-
-export function editOneNoteError(response) {
-  return {
-    type: EDIT_ONE_NOTE_ERROR,
-    payload: response,
-  };
-}
-
-export function prepareEdit(id, callback) {
-  return (dispatch) => {
-    dispatch(editOneNoteStarted());
-    callback();
-  };
-}
-
 export function editNote(id, values, callback) {
   return (dispatch) => {
     axios.put(`${ROOT_URL}/api/notes/${id}`, values).then((response) => {
-      dispatch(editOneNoteSuccess(response));
+      dispatch({ type: EDIT_ONE_NOTE_SUCCESS, payload: response });
       callback();
     }).catch((error) => {
-      dispatch(editOneNoteError(error));
+      dispatch({ type: EDIT_ONE_NOTE_ERROR, payload: error });
     });
   };
 }
