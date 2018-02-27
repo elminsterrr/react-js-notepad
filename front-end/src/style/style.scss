@@ -1,0 +1,159 @@
+body {
+  background: url('https://res.cloudinary.com/dfe57evk4/image/upload/v1497030530/beautiful_mountains_of_the_world-wallpaper-1920x1200_ooutrw.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+
+  h2 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  hr {
+    margin-top: 3rem;
+    margin-bottom: 0rem;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .new-note-parent {
+    padding: 0;
+
+    .new-note {
+      background-color: #535169;
+      border-color: #535169;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 20px;
+      margin: 10px 0;
+
+      &:hover {
+        background-color: #9b97c5;
+      }
+    }
+  }
+
+  .notes-list {
+    padding: 0;
+
+    .list-group-item {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 16px;
+      cursor: pointer;
+
+      &:last-child {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .note-show {
+    margin-top: 30px;
+    margin-bottom: 25px;
+    padding: 25px;
+    background: #fff;
+    border: 1px solid #ddd;
+
+    .note-text {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 20px;
+    }
+
+    .small-buttons {
+      position: relative;
+      top: -34px;
+    }
+
+    .date-time {
+      position: relative;
+      top: 0px;
+      width: 300px;
+      font-style: italic;
+      font-size: 10px;
+      margin: 0 auto;
+    }
+  }
+
+  .form-fields {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    font-size: 20px;
+
+    .form-group {
+      margin-bottom: 0;
+    }
+
+    .form-title {
+      font-family:'Graduate', sans-serif;
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 0;
+      color: #fff;
+    }
+
+    .form-control-title {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    .form-control-content {
+      font-size: 18px;
+      min-height: 150px;
+    }
+
+    .text-help {
+      background: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    a {
+      margin-left: 7px;
+    }
+  }
+
+  .error-main {
+    color: #fff;
+    background: #062e38;
+  }
+
+  .error-del {
+    color: #fff;
+    background: #ff0000;
+    margin-top: 10px;
+  }
+
+  @media (min-width: 300px) {
+    .form-control-title,
+    .form-control-content {
+      width: 300px !important;
+    }
+  }
+
+  @media (min-width: 543px) {
+    .note-show {
+      margin-top: 0px;
+
+      .date-time {
+        top: 32px;
+        font-size: 16px;
+      }
+
+      .small-buttons {
+        position: static;
+        top: 0px;
+      }
+    }
+
+    .form-control-title,
+    .form-control-content {
+      width: 400px !important;
+    }
+  }
+}
