@@ -20,24 +20,20 @@ class NotesIndex extends Component {
       return (
         <div className="error-del text-center">
           There was a problem connecting to the server! Please try again later!<br />
-          <Link to="/notes/error">
-            Show Error
-          </Link>
+          <Link to="/notes/error">Show Error</Link>
         </div>
       );
     }
     const { notes } = this.props;
-    return _.map(notes, (oneNote) => {
-      return (
-        <li
-          onClick={() => this.props.selectNote(oneNote._id)}
-          key={oneNote._id}
-          className="list-group-item"
-        >
-          {oneNote.title}
-        </li>
-      );
-    });
+    return _.map(notes, oneNote => (
+      <li
+        onClick={() => this.props.selectNote(oneNote._id)}
+        key={oneNote._id}
+        className="list-group-item"
+      >
+        {oneNote.title}
+      </li>
+    ));
   }
 
   render() {
@@ -69,10 +65,13 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    fetchAllNotes: fetchAllNotes,
-    selectNote: selectNote,
-  }, dispatch);
+  return bindActionCreators(
+    {
+      fetchAllNotes,
+      selectNote,
+    },
+    dispatch
+  );
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NotesIndex);

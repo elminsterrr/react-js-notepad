@@ -1,3 +1,7 @@
 {
-  "extends": "callstack-io"
+  "extends": "callstack-io",
+  "rules": {
+    "react/jsx-no-bind": 0,
+    'jsx-a11y/no-noninteractive-element-interactions': 0,
+  }
 }

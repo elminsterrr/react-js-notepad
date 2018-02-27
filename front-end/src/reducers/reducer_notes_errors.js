@@ -1,6 +1,11 @@
-import { FETCH_ALL_NOTES_ERROR, ADD_NOTE_ERROR, DEL_NOTE_ERROR, EDIT_ONE_NOTE_ERROR } from '../actions/actions';
+import {
+  FETCH_ALL_NOTES_ERROR,
+  ADD_NOTE_ERROR,
+  DEL_NOTE_ERROR,
+  EDIT_ONE_NOTE_ERROR,
+} from '../actions/actions';
 
-export default function (state = {}, action) {
+export default function(state = {}, action) {
   switch (action.type) {
     case FETCH_ALL_NOTES_ERROR:
       return { ...state, FETCH_ALL_NOTES_ERROR: action.payload };

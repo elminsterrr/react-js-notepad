@@ -9,7 +9,7 @@ class NoteEdit extends Component {
   componentWillReceiveProps(nextProps) {
     const { notes } = nextProps;
     const { edit } = this.props;
-    if (!(_.isEmpty(notes)) && edit !== 'edit_note_touched') {
+    if (!_.isEmpty(notes) && edit !== 'edit_note_touched') {
       const { change } = this.props;
       const { selectedNote } = this.props;
       change('title', notes[selectedNote].title);
@@ -25,14 +25,24 @@ class NoteEdit extends Component {
     this.props.editNote(
       selectedNote,
       { ...values, editTime: currentTime, timeRaw: currentTimeRaw },
-      () => this.props.history.push('/'),
+      () => this.props.history.push('/')
     );
   }
 
   formatDateAndHour() {
     const monthNames = [
-      'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
-      'September', 'October', 'November', 'December',
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
     ];
     const date = new Date();
     const day = date.getDate();
@@ -40,30 +50,37 @@ class NoteEdit extends Component {
     const year = date.getFullYear();
     const hour = date.getHours();
     const minutes = date.getMinutes();
-    const dayShow = day < 10 ? '0' + day : day;
-    const hourShow = hour < 10 ? '0' + hour : hour;
-    const minutesShow = minutes < 10 ? '0' + minutes : minutes;
-    return `${dayShow} ${monthNames[monthIndex]} ${year} ${hourShow}:${minutesShow}`;
+    const dayShow = day < 10 ? `0${day}` : day;
+    const hourShow = hour < 10 ? `0${hour}` : hour;
+    const minutesShow = minutes < 10 ? `0${minutes}` : minutes;
+    return `${dayShow} ${
+      monthNames[monthIndex]
+    } ${year} ${hourShow}:${minutesShow}`;
   }
 
   errorView() {
     const { edit } = this.props;
     if (edit === 'error') {
-      return <div className="error-del">Sorry, something went wrong. Please try again later.</div>;
+      return (
+        <div className="error-del">
+          Sorry, something went wrong. Please try again later.
+        </div>
+      );
     }
     return <div />;
   }
 
   renderFieldTitle(field) {
-    const className = `form-group ${field.meta.touched && field.meta.error ? 'has-danger' : ''}`;
+    const className = `form-group ${
+      field.meta.touched && field.meta.error ? 'has-danger' : ''
+    }`;
     return (
       <div className={className}>
-        <label className="form-title">{field.labelToShow}</label><br />
-        <input
-          className="form-control-title"
-          type="text"
-          {...field.input}
-        />
+        <label className="form-title" htmlFor="title">
+          {field.labelToShow}
+        </label>
+        <br />
+        <input className="form-control-title" type="text" {...field.input} />
         <div className="text-help">
           {field.meta.touched ? field.meta.error : ''}
         </div>
@@ -72,10 +89,15 @@ class NoteEdit extends Component {
   }
 
   renderFieldContent(field) {
-    const className = `form-group ${field.meta.touched && field.meta.error ? 'has-danger' : ''}`;
+    const className = `form-group ${
+      field.meta.touched && field.meta.error ? 'has-danger' : ''
+    }`;
     return (
       <div className={className}>
-        <label className="form-title">{field.labelToShow}</label><br />
+        <label className="form-title" htmlFor="title">
+          {field.labelToShow}
+        </label>
+        <br />
         <textarea
           className="form-control-content text-justify"
           type="text"
@@ -135,7 +157,9 @@ function mapStateToProps(state) {
   };
 }
 
-export default withRouter(reduxForm({
-  validate: validate,
-  form: 'NoteNewFormUnique',
-})(connect(mapStateToProps, { editNote, touchedEdit })(NoteEdit)));
+export default withRouter(
+  reduxForm({
+    validate,
+    form: 'NoteNewFormUnique',
+  })(connect(mapStateToProps, { editNote, touchedEdit })(NoteEdit))
+);

@@ -35,9 +35,15 @@ class NoteShow extends Component {
     const { allNotesFromStateObj } = this.props;
     const noteToView = allNotesFromStateObj[selectedNoteFromState];
     if (noteToView.editTime) {
-      return <p className="text-center date-time">Last edited: {noteToView.editTime}</p>;
+      return (
+        <p className="text-center date-time">
+          Last edited: {noteToView.editTime}
+        </p>
+      );
     }
-    return <p className="text-center date-time">Created: {noteToView.createTime}</p>;
+    return (
+      <p className="text-center date-time">Created: {noteToView.createTime}</p>
+    );
   }
 
   renderNoteDetail() {
@@ -69,7 +75,10 @@ class NoteShow extends Component {
   render() {
     const { statusFromState } = this.props;
     const { selectedNoteFromState } = this.props;
-    if (statusFromState === 'fetch_all_notes_success' && selectedNoteFromState !== null) {
+    if (
+      statusFromState === 'fetch_all_notes_success' &&
+      selectedNoteFromState !== null
+    ) {
       return (
         <div>
           {this.renderNoteDetail()}
@@ -90,4 +99,6 @@ function mapStateToProps(state) {
   };
 }
 
-export default withRouter(connect(mapStateToProps, { prepareEdit, deleteOneNote })(NoteShow));
+export default withRouter(
+  connect(mapStateToProps, { prepareEdit, deleteOneNote })(NoteShow)
+);

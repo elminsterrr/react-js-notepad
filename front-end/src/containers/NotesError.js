@@ -11,9 +11,7 @@ class NotesError extends Component {
         <div className="error-main text-center">
           No errors were found!
           <br />
-          <Link to="/">
-            Go Back
-          </Link>
+          <Link to="/">Go Back</Link>
         </div>
       );
     }
@@ -21,9 +19,7 @@ class NotesError extends Component {
       <div className="error-main text-center">
         {JSON.stringify(errors)}
         <br />
-        <Link to="/">
-          Go Back
-        </Link>
+        <Link to="/">Go Back</Link>
       </div>
     );
   }

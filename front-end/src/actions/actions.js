@@ -18,42 +18,51 @@ export const NOTE_SELECTED = 'NOTE_SELECTED';
 const ROOT_URL = 'https://elminster-white-note-rest-api.herokuapp.com';
 
 export function fetchAllNotes() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({ type: FETCH_ALL_NOTES_STARTED });
-    axios.get(`${ROOT_URL}/api/notes`).then((response) => {
-      dispatch({ type: FETCH_ALL_NOTES_SUCCESS, payload: response });
-    }).catch((error) => {
-      dispatch({ type: FETCH_ALL_NOTES_ERROR, payload: error });
-    });
+    axios
+      .get(`${ROOT_URL}/api/notes`)
+      .then(response => {
+        dispatch({ type: FETCH_ALL_NOTES_SUCCESS, payload: response });
+      })
+      .catch(error => {
+        dispatch({ type: FETCH_ALL_NOTES_ERROR, payload: error });
+      });
   };
 }
 
 export function addNote(values, callback) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({ type: ADD_NOTE_STARTED });
-    axios.post(`${ROOT_URL}/api/notes`, values).then((response) => {
-      dispatch({ type: ADD_NOTE_SUCCESS, payload: response });
-      callback();
-    }).catch((error) => {
-      dispatch({ type: ADD_NOTE_ERROR, payload: error });
-    });
+    axios
+      .post(`${ROOT_URL}/api/notes`, values)
+      .then(response => {
+        dispatch({ type: ADD_NOTE_SUCCESS, payload: response });
+        callback();
+      })
+      .catch(error => {
+        dispatch({ type: ADD_NOTE_ERROR, payload: error });
+      });
   };
 }
 
 export function deleteOneNote(id, callback) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({ type: DEL_NOTE_STARTED });
-    axios.delete(`${ROOT_URL}/api/notes/${id}`).then(() => {
-      dispatch({ type: DEL_NOTE_SUCCESS, payload: id });
-      callback();
-    }).catch((error) => {
-      dispatch({ type: DEL_NOTE_ERROR, payload: error });
-    });
+    axios
+      .delete(`${ROOT_URL}/api/notes/${id}`)
+      .then(() => {
+        dispatch({ type: DEL_NOTE_SUCCESS, payload: id });
+        callback();
+      })
+      .catch(error => {
+        dispatch({ type: DEL_NOTE_ERROR, payload: error });
+      });
   };
 }
 
 export function prepareEdit(id, callback) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({ type: EDIT_ONE_NOTE_STARTED });
     callback();
   };
@@ -66,13 +75,16 @@ export function touchedEdit() {
 }
 
 export function editNote(id, values, callback) {
-  return (dispatch) => {
-    axios.put(`${ROOT_URL}/api/notes/${id}`, values).then((response) => {
-      dispatch({ type: EDIT_ONE_NOTE_SUCCESS, payload: response });
-      callback();
-    }).catch((error) => {
-      dispatch({ type: EDIT_ONE_NOTE_ERROR, payload: error });
-    });
+  return dispatch => {
+    axios
+      .put(`${ROOT_URL}/api/notes/${id}`, values)
+      .then(response => {
+        dispatch({ type: EDIT_ONE_NOTE_SUCCESS, payload: response });
+        callback();
+      })
+      .catch(error => {
+        dispatch({ type: EDIT_ONE_NOTE_ERROR, payload: error });
+      });
   };
 }
 

@@ -1,6 +1,10 @@
-import { DEL_NOTE_STARTED, DEL_NOTE_ERROR, DEL_NOTE_SUCCESS } from '../actions/actions';
+import {
+  DEL_NOTE_STARTED,
+  DEL_NOTE_ERROR,
+  DEL_NOTE_SUCCESS,
+} from '../actions/actions';
 
-export default function (state = {}, action) {
+export default function(state = {}, action) {
   switch (action.type) {
     case DEL_NOTE_STARTED:
       return 'deleting_started';

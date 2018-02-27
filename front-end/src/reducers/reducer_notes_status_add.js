@@ -1,6 +1,10 @@
-import { ADD_NOTE_STARTED, ADD_NOTE_ERROR, ADD_NOTE_SUCCESS } from '../actions/actions';
+import {
+  ADD_NOTE_STARTED,
+  ADD_NOTE_ERROR,
+  ADD_NOTE_SUCCESS,
+} from '../actions/actions';
 
-export default function (state = {}, action) {
+export default function(state = {}, action) {
   switch (action.type) {
     case ADD_NOTE_STARTED:
       return 'adding_started';

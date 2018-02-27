@@ -8,7 +8,6 @@ import EditStatusReducer from './reducer_notes_status_edit';
 import GeneralNotesReducer from './reducer_notes_general';
 import ErorsNotesReducer from './reducer_notes_errors';
 
-
 const rootReducer = combineReducers({
   selectedNote: SelectedNotes,
   fetchAllStatus: FetchStatusReducer,
