@@ -6,9 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
-// todo
-// import '../scss/main.scss';
-// todo
+import './style/style.css';
 
 import reducers from './reducers/index';
 import NoteNew from './containers/NoteNew';
