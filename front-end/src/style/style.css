@@ -109,3 +109,11 @@ body {
     body .form-control-title,
     body .form-control-content {
       width: 400px !important; } }
+  @media (max-width: 520px) {
+    body .quill {
+      height: 250px;
+      width: 300px; } }
+  @media (max-width: 624px) {
+    body .quill {
+      height: 250px;
+      max-width: 500px; } }

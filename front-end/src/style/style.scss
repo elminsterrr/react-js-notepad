@@ -169,4 +169,18 @@ body {
       width: 400px !important;
     }
   }
+
+  @media (max-width: 520px) {
+    .quill {
+      height: 250px;
+      width: 300px;
+    }
+  }
+
+  @media (max-width: 624px) {
+    .quill {
+      height: 250px;
+      max-width: 500px;
+    }
+  }
 }
