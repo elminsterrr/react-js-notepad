@@ -18,6 +18,19 @@ body {
     text-align: center;
   }
 
+  .quill {
+    background-color: #fff;
+    margin-bottom: 10px;
+    height: 250px;
+    width: 600px;
+  }
+
+  .submit-button,
+  .back-button {
+    position: relative;
+    z-index: 1;
+  }
+
   .new-note-parent {
     padding: 0;
 

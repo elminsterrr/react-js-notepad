@@ -11,6 +11,15 @@ body {
     margin-bottom: 0rem; }
   body .text-center {
     text-align: center; }
+  body .quill {
+    background-color: #fff;
+    margin-bottom: 10px;
+    height: 250px;
+    width: 600px; }
+  body .submit-button,
+  body .back-button {
+    position: relative;
+    z-index: 1; }
   body .new-note-parent {
     padding: 0; }
     body .new-note-parent .new-note {

@@ -6,6 +6,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
+import './style/bootstrap.min.css';
+import './style/quill.snow.css';
 import './style/style.css';
 
 import reducers from './reducers/index';

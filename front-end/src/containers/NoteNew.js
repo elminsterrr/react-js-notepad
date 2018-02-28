@@ -103,10 +103,10 @@ class NoteNew extends Component {
             labelToShow="content"
             component={this.renderFieldContent}
           />
-          <button type="submit" className="btn btn-secondary">
+          <button type="submit" className="btn btn-secondary submit-button">
             <i className="fa fa-check" aria-hidden="true" />
           </button>
-          <Link to="/" className="btn btn-secondary">
+          <Link to="/" className="btn btn-secondary back-button">
             <i className="fa fa-times" aria-hidden="true" />
           </Link>
           {this.errorView()}
