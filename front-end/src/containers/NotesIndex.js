@@ -14,7 +14,7 @@ class NotesIndex extends Component {
   renderAllNotes() {
     const { fetchAllStatus } = this.props;
     if (fetchAllStatus === 'fetching_started') {
-      return <div className="text-center">Loading from server...</div>;
+      return <div className="text-center">Loading notes from server...</div>;
     }
     if (fetchAllStatus === 'error') {
       return (
