@@ -32,6 +32,7 @@ export function fetchAllNotes() {
 }
 
 export function addNote(values, callback) {
+  console.log('!!!', values)
   return dispatch => {
     dispatch({ type: ADD_NOTE_STARTED });
     axios
@@ -41,6 +42,7 @@ export function addNote(values, callback) {
         callback();
       })
       .catch(error => {
+        console.log(error)
         dispatch({ type: ADD_NOTE_ERROR, payload: error });
       });
   };

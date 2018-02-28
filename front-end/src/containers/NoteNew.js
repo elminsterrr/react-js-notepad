@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
+import ReactQuill from 'react-quill';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addNote } from '../actions/actions';
 
 class NoteNew extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      content: '',
+    };
+  }
+
+  handleContentChange(value) {
+    this.setState({ content: value });
+  }
+
   onSumbit(values) {
+    const content = this.state.content;
     const currentTime = this.formatDateAndHour();
     const currentTimeRaw = new Date();
     this.props.addNote(
-      { ...values, createTime: currentTime, timeRaw: currentTimeRaw },
+      { ...values, content, createTime: currentTime, timeRaw: currentTimeRaw },
       () => this.props.history.push('/')
     );
   }
@@ -73,28 +86,6 @@ class NoteNew extends Component {
     );
   }
 
-  renderFieldContent(field) {
-    const className = `form-group ${
-      field.meta.touched && field.meta.error ? 'has-danger' : ''
-    }`;
-    return (
-      <div className={className}>
-        <label className="form-title" htmlFor="title">
-          {field.labelToShow}
-        </label>
-        <br />
-        <textarea
-          className="form-control-content text-justify"
-          type="text"
-          {...field.input}
-        />
-        <div className="text-help">
-          {field.meta.touched ? field.meta.error : ''}
-        </div>
-      </div>
-    );
-  }
-
   render() {
     const { handleSubmit } = this.props;
     return (
@@ -102,10 +93,12 @@ class NoteNew extends Component {
         <form onSubmit={handleSubmit(this.onSumbit.bind(this))}>
           <Field
             name="title"
-            labelToShow="title"
+            labelToShow="Note title"
             component={this.renderFieldTitle}
           />
-          <Field
+          <ReactQuill
+            value={this.state.content}
+            onChange={this.handleContentChange.bind(this)}
             name="content"
             labelToShow="content"
             component={this.renderFieldContent}
@@ -127,9 +120,6 @@ function validate(values) {
   const errors = {};
   if (!values.title || values.title.length < 3) {
     errors.title = 'Enter note title that is at least 3 characters long!';
-  }
-  if (!values.content || values.content.length < 3) {
-    errors.content = 'Enter note content that is at least 3 characters long!';
   }
   return errors;
 }
