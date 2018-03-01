@@ -30,6 +30,7 @@
   padding: 0;
 }
 .ql-editor {
+  background-color: #fff;
   box-sizing: border-box;
   cursor: text;
   line-height: 1.42;

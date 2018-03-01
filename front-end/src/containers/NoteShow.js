@@ -53,7 +53,10 @@ class NoteShow extends Component {
     return (
       <div className="col-sm-8 col-md-7 col-lg-8 col-xl-8 pull-sm-right text-justify note-show">
         <h2 className="text-center">{noteToView.title}</h2>
-        <p className="note-text">{noteToView.content}</p>
+        <div
+          className="note-content"
+          dangerouslySetInnerHTML={{ __html: noteToView.content }}
+        />
         <hr />
         {this.timeView()}
         <button

@@ -19,6 +19,7 @@ body {
   body .submit-button,
   body .back-button {
     position: relative;
+    top: 50px;
     z-index: 1; }
   body .new-note-parent {
     padding: 0; }
@@ -44,7 +45,7 @@ body {
     padding: 25px;
     background: #fff;
     border: 1px solid #ddd; }
-    body .note-show .note-text {
+    body .note-show .note-content {
       font-family: 'Work Sans', sans-serif;
       font-size: 20px; }
     body .note-show .small-buttons {
