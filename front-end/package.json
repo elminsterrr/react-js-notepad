@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "express": "^4.16.2",
     "lodash": "^4.17.5",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.2",
@@ -16,7 +17,9 @@
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-form": "^7.2.3",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "eslint": "^4.14.0",
+    "eslint-config-callstack-io": "^1.0.1"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
@@ -26,10 +29,9 @@
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "npm run build",
+    "start": "node server.js"
   },
-  "devDependencies": {
-    "eslint": "^4.14.0",
-    "eslint-config-callstack-io": "^1.0.1"
-  }
+  "devDependencies": {}
 }
