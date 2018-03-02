@@ -11,6 +11,15 @@ body {
     margin-bottom: 0rem; }
   body .text-center {
     text-align: center; }
+  body .quill {
+    background-color: #fff;
+    margin-bottom: 10px;
+    height: 250px; }
+  body .submit-button,
+  body .back-button {
+    position: relative;
+    top: 50px;
+    z-index: 1; }
   body .new-note-parent {
     padding: 0; }
     body .new-note-parent .new-note {
@@ -35,7 +44,8 @@ body {
     padding: 25px;
     background: #fff;
     border: 1px solid #ddd; }
-    body .note-show .note-text {
+    body .note-show .note-content
+.note-show-content {
       font-family: 'Work Sans', sans-serif;
       font-size: 20px; }
     body .note-show .small-buttons {
@@ -85,15 +95,22 @@ body {
     background: #ff0000;
     margin-top: 10px; }
   @media (min-width: 300px) {
-    body .form-control-title,
-    body .form-control-content {
-      width: 300px !important; } }
-  @media (min-width: 543px) {
     body .note-show {
       margin-top: 0px; }
       body .note-show .date-time {
+        position: relative;
+        left: -20px; }
+    body .form-control-title,
+    body .form-control-content {
+      width: 300px !important; } }
+  @media (min-width: 575px) {
+    body .note-show {
+      margin-top: 0px; }
+      body .note-show .date-time {
+        position: relative;
+        left: -10px;
         top: 32px;
-        font-size: 16px; }
+        font-size: 14px; }
       body .note-show .small-buttons {
         position: static;
         top: 0px; }

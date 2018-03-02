@@ -1,11 +1,44 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
+import ReactQuill from 'react-quill';
 import { Field, reduxForm } from 'redux-form';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { editNote, touchedEdit } from '../actions/actions';
 
 class NoteEdit extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      content: '',
+    };
+    this.modules = {
+      toolbar: [
+        [{ header: [1, 2, false] }],
+        ['bold', 'italic', 'underline', 'strike'],
+        [{ color: [] }, { background: [] }],
+        [{ align: [] }],
+        [{ list: 'ordered' }, { list: 'bullet' }],
+        ['link', 'image'],
+        ['clean'],
+      ],
+    };
+    this.formats = [
+      'background',
+      'color',
+      'header',
+      'bold',
+      'italic',
+      'underline',
+      'strike',
+      'list',
+      'align',
+      'bullet',
+      'link',
+      'image',
+    ];
+  }
+
   componentWillReceiveProps(nextProps) {
     const { notes } = nextProps;
     const { edit } = this.props;
@@ -18,13 +51,18 @@ class NoteEdit extends Component {
     }
   }
 
-  onSumbit(values) {
+  handleContentChange(value) {
+    this.setState({ content: value });
+  }
+
+  onNoteEditReadySumbit(values) {
+    const { content } = this.state;
     const { selectedNote } = this.props;
     const currentTime = this.formatDateAndHour();
     const currentTimeRaw = new Date();
     this.props.editNote(
       selectedNote,
-      { ...values, editTime: currentTime, timeRaw: currentTimeRaw },
+      { ...values, content, editTime: currentTime, timeRaw: currentTimeRaw },
       () => this.props.history.push('/')
     );
   }
@@ -112,23 +150,31 @@ class NoteEdit extends Component {
 
   render() {
     const { handleSubmit } = this.props;
+    const { content } = this.props.notes[this.props.selectedNote];
     return (
       <div className="row form-fields text-center">
-        <form onSubmit={handleSubmit(this.onSumbit.bind(this))}>
+        <form onSubmit={handleSubmit(this.onNoteEditReadySumbit.bind(this))}>
           <Field
             name="title"
             labelToShow="title"
             component={this.renderFieldTitle}
           />
-          <Field
-            name="content"
-            labelToShow="content"
-            component={this.renderFieldContent}
-          />
-          <button type="submit" className="btn btn-secondary">
+          <div className="text-editor">
+            <ReactQuill
+              theme="snow"
+              modules={this.modules}
+              formats={this.formats}
+              defaultValue={content}
+              onChange={this.handleContentChange.bind(this)}
+              name="content"
+              labelToShow="content"
+              component={this.renderFieldContent}
+            />
+          </div>
+          <button type="submit" className="btn btn-secondary submit-button">
             <i className="fa fa-check" aria-hidden="true" />
           </button>
-          <Link to="/" className="btn btn-secondary">
+          <Link to="/" className="btn btn-secondary back-button">
             <i className="fa fa-times" aria-hidden="true" />
           </Link>
           {this.errorView()}
