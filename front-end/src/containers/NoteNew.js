@@ -43,7 +43,7 @@ class NoteNew extends Component {
   }
 
   onNoteReadySumbit(values) {
-    const content = this.state.content;
+    const { content } = this.state;
     const currentTime = this.formatDateAndHour();
     const currentTimeRaw = new Date();
     this.props.addNote(

@@ -56,7 +56,7 @@ class NoteEdit extends Component {
   }
 
   onNoteEditReadySumbit(values) {
-    const content = this.state.content;
+    const { content } = this.state;
     const { selectedNote } = this.props;
     const currentTime = this.formatDateAndHour();
     const currentTimeRaw = new Date();
