@@ -14,8 +14,7 @@ body {
   body .quill {
     background-color: #fff;
     margin-bottom: 10px;
-    height: 250px;
-    width: 600px; }
+    height: 250px; }
   body .submit-button,
   body .back-button {
     position: relative;
@@ -118,11 +117,3 @@ body {
     body .form-control-title,
     body .form-control-content {
       width: 400px !important; } }
-  @media (max-width: 520px) {
-    body .quill {
-      height: 250px;
-      width: 300px; } }
-  @media (max-width: 624px) {
-    body .quill {
-      height: 250px;
-      width: 500px; } }

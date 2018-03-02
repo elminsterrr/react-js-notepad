@@ -14,7 +14,7 @@ class NoteNew extends Component {
     this.modules = {
       toolbar: [
         [{ header: [1, 2, false] }],
-        ['bold', 'italic', 'underline', 'strike', 'code-block'],
+        ['bold', 'italic', 'underline', 'strike'],
         [{ color: [] }, { background: [] }],
         [{ align: [] }],
         [{ list: 'ordered' }, { list: 'bullet' }],
@@ -35,7 +35,6 @@ class NoteNew extends Component {
       'bullet',
       'link',
       'image',
-      'code-block',
     ];
   }
 

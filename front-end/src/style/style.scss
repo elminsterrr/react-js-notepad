@@ -22,7 +22,6 @@ body {
     background-color: #fff;
     margin-bottom: 10px;
     height: 250px;
-    width: 600px;
   }
 
   .submit-button,
@@ -179,20 +178,6 @@ body {
     .form-control-title,
     .form-control-content {
       width: 400px !important;
-    }
-  }
-
-  @media (max-width: 520px) {
-    .quill {
-      height: 250px;
-      width: 300px;
-    }
-  }
-
-  @media (max-width: 624px) {
-    .quill {
-      height: 250px;
-      width: 500px;
     }
   }
 

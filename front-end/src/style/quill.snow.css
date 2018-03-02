@@ -69,9 +69,15 @@
   }
 }
 
+@media (max-width:633px) {
+  .quill.note-show-content .ql-editor {
+    width: 300px;
+  }
+}
+
 @media (max-width:575px) {
   .quill.note-show-content .ql-editor {
-    width: 320px;
+    width: 275px;
   }
 }
 
