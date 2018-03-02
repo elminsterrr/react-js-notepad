@@ -16,6 +16,8 @@ body {
     margin-bottom: 10px;
     height: 250px;
     width: 600px; }
+    body .quill .ql-toolbar.ql-snow {
+      display: none; }
   body .submit-button,
   body .back-button {
     position: relative;
@@ -95,15 +97,22 @@ body {
     background: #ff0000;
     margin-top: 10px; }
   @media (min-width: 300px) {
-    body .form-control-title,
-    body .form-control-content {
-      width: 300px !important; } }
-  @media (min-width: 543px) {
     body .note-show {
       margin-top: 0px; }
       body .note-show .date-time {
+        position: relative;
+        left: -20px; }
+    body .form-control-title,
+    body .form-control-content {
+      width: 300px !important; } }
+  @media (min-width: 575px) {
+    body .note-show {
+      margin-top: 0px; }
+      body .note-show .date-time {
+        position: relative;
+        left: -10px;
         top: 32px;
-        font-size: 16px; }
+        font-size: 14px; }
       body .note-show .small-buttons {
         position: static;
         top: 0px; }
@@ -117,4 +126,4 @@ body {
   @media (max-width: 624px) {
     body .quill {
       height: 250px;
-      max-width: 500px; } }
+      width: 500px; } }

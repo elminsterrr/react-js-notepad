@@ -23,6 +23,10 @@ body {
     margin-bottom: 10px;
     height: 250px;
     width: 600px;
+
+    .ql-toolbar.ql-snow {
+      display: none;
+    }
   }
 
   .submit-button,
@@ -144,19 +148,29 @@ body {
   }
 
   @media (min-width: 300px) {
+    .note-show {
+      margin-top: 0px;
+
+      .date-time {
+        position: relative;
+        left: -20px;
+      }
+    }
     .form-control-title,
     .form-control-content {
       width: 300px !important;
     }
   }
 
-  @media (min-width: 543px) {
+  @media (min-width: 575px) {
     .note-show {
       margin-top: 0px;
 
       .date-time {
+        position: relative;
+        left: -10px;
         top: 32px;
-        font-size: 16px;
+        font-size: 14px;
       }
 
       .small-buttons {
@@ -181,7 +195,8 @@ body {
   @media (max-width: 624px) {
     .quill {
       height: 250px;
-      max-width: 500px;
+      width: 500px;
     }
   }
+
 }

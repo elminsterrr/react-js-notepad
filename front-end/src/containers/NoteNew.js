@@ -11,13 +11,39 @@ class NoteNew extends Component {
     this.state = {
       content: '',
     };
+    this.modules = {
+      toolbar: [
+        [{ header: [1, 2, false] }],
+        ['bold', 'italic', 'underline', 'strike', 'code-block'],
+        [{ color: [] }, { background: [] }],
+        [{ align: [] }],
+        [{ list: 'ordered' }, { list: 'bullet' }],
+        ['link', 'image'],
+        ['clean'],
+      ],
+    };
+    this.formats = [
+      'background',
+      'color',
+      'header',
+      'bold',
+      'italic',
+      'underline',
+      'strike',
+      'list',
+      'align',
+      'bullet',
+      'link',
+      'image',
+      'code-block',
+    ];
   }
 
   handleContentChange(value) {
     this.setState({ content: value });
   }
 
-  onSumbit(values) {
+  onNoteReadySumbit(values) {
     const content = this.state.content;
     const currentTime = this.formatDateAndHour();
     const currentTimeRaw = new Date();
@@ -90,19 +116,24 @@ class NoteNew extends Component {
     const { handleSubmit } = this.props;
     return (
       <div className="row form-fields text-center">
-        <form onSubmit={handleSubmit(this.onSumbit.bind(this))}>
+        <form onSubmit={handleSubmit(this.onNoteReadySumbit.bind(this))}>
           <Field
             name="title"
             labelToShow="Note title"
             component={this.renderFieldTitle}
           />
-          <ReactQuill
-            value={this.state.content}
-            onChange={this.handleContentChange.bind(this)}
-            name="content"
-            labelToShow="content"
-            component={this.renderFieldContent}
-          />
+          <div className="text-editor">
+            <ReactQuill
+              theme="snow"
+              modules={this.modules}
+              formats={this.formats}
+              value={this.state.content}
+              onChange={this.handleContentChange.bind(this)}
+              name="content"
+              labelToShow="content"
+              component={this.renderFieldContent}
+            />
+          </div>
           <button type="submit" className="btn btn-secondary submit-button">
             <i className="fa fa-check" aria-hidden="true" />
           </button>

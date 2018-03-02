@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactQuill from 'react-quill';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { prepareEdit, deleteOneNote } from '../actions/actions';
@@ -22,7 +23,7 @@ class NoteShow extends Component {
     const { delNoteStatus } = this.props;
     if (delNoteStatus === 'error') {
       return (
-        <div className="col-sm-3 col-md-3 col-lg-3 col-xl-3 error-del text-center">
+        <div className="col-sm-5 col-md-5 col-lg-5 col-xl-5 error-del text-center">
           Sorry, something went wrong. Please try again later.
         </div>
       );
@@ -51,11 +52,13 @@ class NoteShow extends Component {
     const { allNotesFromStateObj } = this.props;
     const noteToView = allNotesFromStateObj[selectedNoteFromState];
     return (
-      <div className="col-sm-8 col-md-7 col-lg-8 col-xl-8 pull-sm-right text-justify note-show">
+      <div className="col-sm-8 col-md-8 col-lg-8 col-xl-8 pull-sm-right text-justify note-show">
         <h2 className="text-center">{noteToView.title}</h2>
-        <div
+        <ReactQuill
+          modules={{ toolbar: [] }}
+          readOnly={true}
+          value={noteToView.content}
           className="note-content"
-          dangerouslySetInnerHTML={{ __html: noteToView.content }}
         />
         <hr />
         {this.timeView()}
