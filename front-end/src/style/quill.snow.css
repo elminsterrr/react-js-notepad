@@ -46,57 +46,49 @@
 }
 
 @media (max-width: 1300px) {
-  .quill.note-content,
-  .ql-editor {
+  .quill.note-show-content .ql-editor {
     width: 725px;
   }
 }
 
 @media (max-width: 1200px) {
-  .quill.note-content,
-  .ql-editor {
+  .quill.note-show-content .ql-editor {
     width: 580px;
   }
 }
 
 @media (max-width:991px) {
-  .quill.note-content,
-  .ql-editor {
+  .quill.note-show-content .ql-editor {
     width: 430px;
   }
 }
 
 @media (max-width:766px) {
-  .quill.note-content,
-  .ql-editor {
+  .quill.note-show-content .ql-editor {
     width: 340px;
   }
 }
 
 @media (max-width:575px) {
-  .quill.note-content,
-  .ql-editor {
+  .quill.note-show-content .ql-editor {
     width: 320px;
   }
 }
 
 @media (max-width:542px) {
-  .quill.note-content,
-  .ql-editor {
+  .quill.note-show-content .ql-editor {
     width: 425px;
   }
 }
 
 @media (max-width:467px) {
-  .quill.note-content,
-  .ql-editor {
+  .quill.note-show-content .ql-editor {
     width:325px;
   }
 }
 
 @media (max-width:372px) {
-  .quill.note-content,
-  .ql-editor {
+  .quill.note-show-content .ql-editor {
     width:275px;
   }
 }

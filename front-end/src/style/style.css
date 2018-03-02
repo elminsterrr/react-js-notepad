@@ -16,8 +16,6 @@ body {
     margin-bottom: 10px;
     height: 250px;
     width: 600px; }
-    body .quill .ql-toolbar.ql-snow {
-      display: none; }
   body .submit-button,
   body .back-button {
     position: relative;
@@ -47,7 +45,8 @@ body {
     padding: 25px;
     background: #fff;
     border: 1px solid #ddd; }
-    body .note-show .note-content {
+    body .note-show .note-content
+.note-show-content {
       font-family: 'Work Sans', sans-serif;
       font-size: 20px; }
     body .note-show .small-buttons {

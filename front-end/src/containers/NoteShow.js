@@ -55,10 +55,10 @@ class NoteShow extends Component {
       <div className="col-sm-8 col-md-8 col-lg-8 col-xl-8 pull-sm-right text-justify note-show">
         <h2 className="text-center">{noteToView.title}</h2>
         <ReactQuill
-          modules={{ toolbar: [] }}
+          modules={{ toolbar: false }}
           readOnly={true}
           value={noteToView.content}
-          className="note-content"
+          className="note-show-content"
         />
         <hr />
         {this.timeView()}
