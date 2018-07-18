@@ -53,4 +53,4 @@ In your browser go to:
 http://localhost:3000/
 ```
 
-and start using the notepad.
+and start using the notepad. 
